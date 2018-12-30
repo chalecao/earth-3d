@@ -118,6 +118,9 @@ var globes = function() {
              * Returns an object that mutates this globe's current projection during a drag/zoom operation.
              * Each drag/zoom event invokes the move() method, and when the move is complete, the end() method
              * is invoked.
+             * 返回一个在 drag/zoom 操作中当前globe映射 的变体对象，每个drag/zoom事件都会调用move方法，在move方法
+             * 结束的时候，调用end方法
+             * 关于旋转，可以参考https://www.jasondavies.com/maps/rotate/
              *
              * @param startMouse starting mouse position.
              * @param startScale starting scale.
@@ -129,6 +132,7 @@ var globes = function() {
                 var original = projection.precision();
                 projection.precision(original * 10);
                 return {
+                    //移动或者缩放
                     move: function(mouse, scale) {
                         if (mouse) {
                             var xd = mouse[0] - startMouse[0] + rotation[0];

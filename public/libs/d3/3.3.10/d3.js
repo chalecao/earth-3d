@@ -3750,6 +3750,7 @@ d3 = function() {
       φ = _[1] % 360 * d3_radians;
       return reset();
     };
+	  
     projection.rotate = function(_) {
       if (!arguments.length) return [ δλ * d3_degrees, δφ * d3_degrees, δγ * d3_degrees ];
       δλ = _[0] % 360 * d3_radians;

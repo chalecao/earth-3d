@@ -1,6 +1,6 @@
 /**
  * micro - a grab bag of somewhat useful utility functions and other stuff that requires unit testing
- *
+ * 宏 - 一些有用的功能性函数和一些其他需要做单元测试的代码
  * Copyright (c) 2014 Cameron Beccario
  * The MIT License - http://opensource.org/licenses/MIT
  *
@@ -36,8 +36,7 @@ var µ = function() {
     }
 
     /**
-     * @returns {Number} returns remainder of floored division, i.e., floor(a / n). Useful for consistent modulo
-     *          of negative numbers. See http://en.wikipedia.org/wiki/Modulo_operation.
+     * @returns {Number} returns remainder of floored division, i.e., floor(a / n). Useful for consistent modulo of negative numbers. See http://en.wikipedia.org/wiki/Modulo_operation.
      */
     function floorMod(a, n) {
         var f = a - n * Math.floor(a / n);
@@ -63,8 +62,7 @@ var µ = function() {
     }
 
     /**
-     * @returns {number} the fraction of the bounds [low, high] covered by the value x, after clamping x to the
-     *          bounds. For example, given bounds=[10, 20], this method returns 1 for x>=20, 0.5 for x=15 and 0
+     * @returns {number} the fraction of the bounds [low, high] covered by the value x, after clamping x to the bounds. For example, given bounds=[10, 20], this method returns 1 for x>=20, 0.5 for x=15 and 0
      *          for x<=10.
      */
     function proportion(x, low, high) {
@@ -151,6 +149,7 @@ var µ = function() {
     }
 
     /**
+     * 返回浏览器支持的记录日志的对象
      * @returns {Object} an object to perform logging, if/when the browser supports it.
      */
     function log() {
@@ -165,6 +164,7 @@ var µ = function() {
     }
 
     /**
+     * 返回一个描述当前浏览器视图大小尺寸的对象
      * @returns {width: (Number), height: (Number)} an object that describes the size of the browser's current view.
      */
     function view() {
@@ -352,6 +352,8 @@ var µ = function() {
      *     gis.stackexchange.com/questions/5068/how-to-create-an-accurate-tissot-indicatrix
      *     www.jasondavies.com/maps/tissot
      *
+     *     http://gis.stackexchange.com/questions/5068/how-to-create-an-accurate-tissot-indicatrix
+     *
      * @returns {Array} array of scaled derivatives [dx/dλ, dy/dλ, dx/dφ, dy/dφ]
      */
     function distortion(projection, λ, φ, x, y) {
@@ -481,6 +483,7 @@ var µ = function() {
              * Submit a new task and arguments to invoke the task with. The task may return a promise for
              * asynchronous tasks, and all arguments may be either values or promises. The previously submitted
              * task, if any, is immediately cancelled.
+             * 取消之前的task，执行提交的task
              * @returns this agent.
              */
             submit: function(task, arg0, arg1, and_so_on) {
